@@ -10,7 +10,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        DaggerSmartPhoneComponent.create().inject(this)
+        //DaggerSmartPhoneComponent.create().inject(this)
+        DaggerSmartPhoneComponent.builder().memoryCardModule(MemoryCardModule(4000)).build().inject(this)
         smartPhone.makeCall()
 //        val smartPhone = SmartPhone(Battery(), SIMCard(ServiceProvider()), MemoryCard()) //Construct injection
 //        smartPhone.makeCall()
